@@ -15,6 +15,29 @@ body {
     align-items: center;
     background-color: #93a7a4;
 }
+
+main{
+    max-width: 1440px;
+    margin: 0 auto; /* Центрирование при ширине больше 1440px */
+    padding: 0 20px; /* Отступы по бокам */
+    box-sizing: border-box;
+    min-width: 450px;
+}
+nav{
+    max-width: 1440px;
+    margin: 0 auto; /* Центрирование при ширине больше 1440px */
+    padding: 0 20px; /* Отступы по бокам */
+    box-sizing: border-box;
+    min-width: 450px;
+}
+footer{
+    max-width: 1440px;
+    margin: 0 auto; /* Центрирование при ширине больше 1440px */
+    padding: 0 20px; /* Отступы по бокам */
+    box-sizing: border-box;
+    min-width: 450px;
+
+}
 .header {
     display: flex;
     justify-content: space-between;
