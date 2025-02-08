@@ -5,7 +5,9 @@ body {
     font-family: "Raleway", serif;
     font-optical-sizing: auto;
     font-weight: 600;
-    /* font-style: italic; */
+    font-size: 16px;
+    font-style: normal;
+    color:#000;
     margin: 0;
     padding: 0;
     /* display: flex; */
