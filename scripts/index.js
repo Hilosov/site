@@ -1,3 +1,5 @@
+// Блок схема лежит в макет/блок схема
+
 document.addEventListener('DOMContentLoaded', function () {
     // Находим все элементы с классом 'favorite' (это звездочки для избранного)
     const favoriteIcons = document.querySelectorAll('.favorite');
