@@ -2,67 +2,15 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-const routes = [
-        {
-            title: "Горный поход",
-            description: "Живописные горные тропы с видом на долины.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Морское путешествие",
-            description: "Прогулка на яхте вдоль побережья.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        },
-        {
-            title: "Городская экскурсия",
-            description: "Знакомство с историческими местами города.",
-            image: "./images/travel_head.jpg"
-        }
-    ];
 
     const routesContainer = document.getElementById('routes');
     const toggleBtn = document.getElementById('toggleRoutesBtn');
     let routesVisible = false;
+    
 
-    // Функция для отображения/скрытия маршрутов
-    function toggleRoutes() {
-        if (!routesVisible) {
-            // Если маршруты не отображены, создаём и показываем их
-            routesContainer.innerHTML = ''; // Очищаем контейнер
-            routes.forEach(route => {
-                const routeElement = document.createElement('div');
-                routeElement.className = 'route';
-                routeElement.innerHTML = `
+    const createHtml = (route) =>
+    {
+        const html = `
                     <a href="travel.html" class="text">${route.title}</a>
                     <img src="${route.image}" alt="Фото маршрута">
                     <div class="description">
@@ -70,8 +18,40 @@ const routes = [
                     </div>
                     <div class="favorite">★</div>
                 `;
-                routesContainer.appendChild(routeElement);
+        return html;
+    }
+
+    const apiUrl = 'data.json';
+
+    // Функция для отображения/скрытия маршрутов
+    function toggleRoutes() {
+        if (!routesVisible) {
+            // Если маршруты не отображены, создаём и показываем их
+            routesContainer.innerHTML = ''; // Очищаем контейнер
+
+            // Загрузка из файла
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data); // Данные
+                console.log(typeof (data));
+                data.forEach(route => {
+                    const routeElement = document.createElement('div');
+                    routeElement.className = 'route';
+                    routeElement.innerHTML = createHtml(route);
+                    routesContainer.appendChild(routeElement);
+                });})
+            .catch(error => {
+                console.error('Ошибка при загрузке данных:', error);
             });
+
+            // Без загрузки
+            // routes.forEach(route => {
+            //     const routeElement = document.createElement('div');
+            //     routeElement.className = 'route';
+            //     routeElement.innerHTML = createHtml(route);
+            //     routesContainer.appendChild(routeElement);
+            // });
             routesContainer.style.display = 'block';
             toggleBtn.textContent = 'Скрыть маршруты';
             routesVisible = true;
@@ -106,38 +86,6 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function () {
 
 
-    //3.2 задание и 3.3
-    // Находим все элементы с классом 'favorite' (это звездочки для избранного)
-    // const favoriteIcons = document.querySelectorAll('.favorite');
-
-    // // Перебираем каждую найденную звездочку
-    // favoriteIcons.forEach(icon => {
-    //     // Добавляем обработчик события 'click' для каждой звездочки
-    //     icon.addEventListener('click', function () {
-    //         // Переключаем класс 'active' у звездочки
-    //         // Если класс есть, он удаляется, если нет — добавляется
-    //         this.classList.toggle('active');
-
-    //         console.log(this.classList.contains('active'))
-    //         // Проверяем, есть ли у звездочки класс 'active'
-    //         if (this.classList.contains('active')) {
-    //             // Если есть, меняем текст звездочки на закрашенную звезду '⭐'
-    //             this.textContent = '⭐';
-    //             // Выводим уведомление, что маршрут добавлен в избранное
-    //             alert('Маршрут добавлен в избранное!');
-    //         } else {
-    //             // Если класса 'active' нет, меняем текст звездочки на незакрашенную звезду '★'
-    //             this.textContent = '★';
-    //             // Выводим уведомление, что маршрут удален из избранного
-    //             alert('Маршрут удален из избранного!');
-    //         }
-    //     });
-    // });
-
-    
-
-
-
     // Scroll
     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
     
@@ -157,4 +105,21 @@ document.addEventListener('DOMContentLoaded', function () {
             behavior: 'smooth'
         });
     });
+
+
+    const preloader = document.querySelector('.preloader');
+    const content = document.querySelector('.content');
+    if (preloader && content) {
+        setTimeout(() => {
+            // Скрываем прелоадер
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+
+            // Показываем контент
+            content.style.display = 'block';
+
+            // Удаляем элемент из DOM
+            preloader.remove();
+        }, 3000); // Задержка 3 секунды
+    }
 });

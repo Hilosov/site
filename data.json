@@ -1,0 +1,47 @@
+[
+        {
+            "title": "Горный поход",
+            "description": "Живописные горные тропы с видом на долины.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Морское путешествие",
+            "description": "Прогулка на яхте вдоль побережья.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        },
+        {
+            "title": "Городская экскурсия",
+            "description": "Знакомство с историческими местами города.",
+            "image": "./images/travel_head.jpg"
+        }
+    ]
