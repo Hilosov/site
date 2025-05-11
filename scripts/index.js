@@ -1,5 +1,10 @@
 // Блок схема лежит в макет/блок схема
 
+document.addEventListener("DOMContentLoaded", () => {
+    console.log('Скрипт отработал корректно')
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Находим все элементы с классом 'favorite' (это звездочки для избранного)
     const favoriteIcons = document.querySelectorAll('.favorite');
@@ -12,15 +17,16 @@ document.addEventListener('DOMContentLoaded', function () {
             // Если класс есть, он удаляется, если нет — добавляется
             this.classList.toggle('active');
 
+            console.log(this.classList.contains('active'))
             // Проверяем, есть ли у звездочки класс 'active'
             if (this.classList.contains('active')) {
-                // Если есть, меняем текст звездочки на закрашенную звезду '★'
-                this.textContent = '★';
+                // Если есть, меняем текст звездочки на закрашенную звезду '⭐'
+                this.textContent = '⭐';
                 // Выводим уведомление, что маршрут добавлен в избранное
                 alert('Маршрут добавлен в избранное!');
             } else {
-                // Если класса 'active' нет, меняем текст звездочки на незакрашенную звезду '⭐'
-                this.textContent = '⭐';
+                // Если класса 'active' нет, меняем текст звездочки на незакрашенную звезду '★'
+                this.textContent = '★';
                 // Выводим уведомление, что маршрут удален из избранного
                 alert('Маршрут удален из избранного!');
             }
